@@ -14,6 +14,8 @@ if __name__ == '__main__':
         if len(word.stem) == target_length:
             list_of_words.append(unidecode.unidecode(word.stem))
     df = pd.DataFrame(list_of_words)
+    # Filter duplicates
+    df = df.drop_duplicates()
     df.to_csv('catalan_dictionary.csv', index=False, header=False)
 
 
